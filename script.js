@@ -1,29 +1,23 @@
 function appendCharacter(character) {
-    document.getElementById("result").value =+ character;
-}
-
-// let input = document.getElementById('inputBox');
-// let buttons = document.querySelectorAll('button');
-
-// let string = "";
-// let arr = Array.from(buttons);
-// arr.forEach(button => {
-//     button.addEventListener('click', (e) =>{
-//         if(e.target.innerHTML == '='){
-//             string = eval(string);
-//             input.value = string;
-//         }
-//         else if(e.target.innerHTML == 'AC'){
-//             string = "";
-//             input.value = string;
-//         }
-//         else if(e.target.innerHTML == 'DEL'){
-//             string = string.substring(0, string.length-1);
-//             input.value = string;
-//         }
-//         else {
-//             string += e.target.innerHTML;
-//             input.value = string;
-//             }
-//         })
-// })
+    document.getElementById("result").value += character;
+  }
+  
+  function clearResult() {
+    document.getElementById("result").value = "";
+  }
+  
+  function deleteCharacter() {
+    var result = document.getElementById("result").value;
+    document.getElementById("result").value = result.slice(0, -1);
+  }
+  
+  function calculateResult() {
+    var result = document.getElementById("result").value;
+    try {
+      var answer = eval(result);
+      document.getElementById("result").value = answer;
+    } catch (error) {
+      alert("Invalid calculation");
+    }
+  }
+  
